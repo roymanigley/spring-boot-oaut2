@@ -1,6 +1,5 @@
 package ch.bytecrowd.securitydemo.web.rest;
 
-import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.FOUND;
 import static org.springframework.http.HttpStatus.OK;
@@ -11,7 +10,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -148,7 +146,7 @@ public class HeroResourceIT {
             get("/api/hero")
             .contentType(MediaType.APPLICATION_JSON)    
         ).andExpect(status().is(FOUND.value()))
-        .andExpect(header().string("Location", "http://localhost/oauth2/authorization/heros-service"));
+        .andExpect(header().string("Location", "http://localhost/login"));
     }
 
     String toJson(Object o) {
